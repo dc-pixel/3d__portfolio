@@ -1,40 +1,86 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import { profile, projects, skills } from './data/portfolio';
 
-const profile = {
-  name: 'Dev Pratap Singh', role: 'Software Engineer', location: 'Noida, India',
-  phone: '+91-9012435623', email: 'devchauhan9012435623@gmail.com',
-  github: 'https://github.com/dc-pixel', linkedin: 'https://www.linkedin.com/'
-};
-const projects = [
-  ['HireMate AI','AI-assisted recruitment and interview platform covering resumes, applications, candidate profiles and recruiter workflows.','Next.js · Node.js · PostgreSQL · JWT · RBAC · REST · LLM · RAG','https://github.com/dc-pixel'],
-  ['Student Result Analysis System','Normalized relational database system for students, courses and scores with indexed JOIN queries and analytical reporting.','MySQL · SQL · DBMS · Normalization · Indexing · Query Optimization','https://github.com/dc-pixel/Student-Result-Analysis-System'],
-  ['Library Management System','Modular Java application using OOP to manage books, users, checkouts, returns and inventory state.','Java · OOP · Persistence Design','https://github.com/dc-pixel/Library-Management-System'],
-  ['Sorting Visualizer','Interactive visualization of sorting algorithms with a clean, responsive interface.','JavaScript · Algorithms · DOM · UI','https://github.com/dc-pixel/sortingvisualizer','https://sortingvisualizer-amber.vercel.app/'],
-  ['Sudoku Solver','Interactive Sudoku solver built around backtracking and algorithmic problem solving.','JavaScript · Backtracking · Algorithms · UI','https://github.com/dc-pixel/Sudoku-Solver-'],
-  ['File Zipper','Practical file-compression utility with a simple web interface.','Java · Compression · File I/O','https://github.com/dc-pixel/File-Zipper-','https://file-zipper-eight.vercel.app/']
-];
-const skillGroups = [
-  ['Languages',['C++','Java','JavaScript','SQL']], ['Frontend',['React.js','Next.js','HTML','CSS']],
-  ['Backend',['Node.js','Express.js','RESTful APIs','JSON','JWT','Authentication']],
-  ['Databases',['MySQL','DBMS','Normalization','Indexing','JOINs','Query Optimization','SQL Aggregation']],
-  ['DSA',['Data Structures','Algorithms','Trie','Sorting','Searching','Complexity Analysis']],
-  ['AI / GenAI',['LLM Integration','RAG','Embeddings','AI Resume Analysis','AI Interview Evaluation']],
-  ['Programming',['OOP','Pointers','Memory Management','Exception Handling','Modular Design']],
-  ['Tools / DevOps',['Git','GitHub','VS Code','CI/CD']]
-];
-function Arrow({down=false}) { return <span aria-hidden="true">{down ? '↓' : '↗'}</span>; }
-function App() { return <div className="app" id="top">
-  <header className="nav"><a className="brand" href="#top">DC<span>.</span></a><nav>{['about','experience','skills','projects','education','contact'].map(x=><a key={x} href={`#${x}`}>{x}</a>)}</nav><a className="nav-cta" href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow/></a></header>
-  <main>
-    <section className="hero section-shell"><div className="hero-copy reveal"><div className="eyebrow">✦ SOFTWARE ENGINEER · FULL-STACK DEVELOPER</div><h1>I build <em>reliable</em><br/>software that scales.</h1><p>I’m <strong>{profile.name}</strong>, a Software Engineer focused on backend systems, RESTful APIs, databases, full-stack applications, algorithms and AI-powered products.</p><div className="hero-actions"><a className="btn primary" href="#projects">View projects <Arrow down/></a><a className="btn ghost" href={`mailto:${profile.email}`}>Contact me →</a></div><div className="hero-meta"><span>● {profile.location}</span><span>Open to Relocate</span><span>Available for Software Engineering roles</span></div></div>
-      <div className="hero-3d" aria-label="3D developer graphic"><div className="scene"><div className="orbital orbital-one"/><div className="orbital orbital-two"/><div className="core"><span>DC</span></div></div><div className="float-tag tag-one">REACT</div><div className="float-tag tag-two">JAVA</div><div className="float-tag tag-three">AI</div></div><div className="scroll-cue">SCROLL TO EXPLORE <Arrow down/></div></section>
-    <section id="about" className="section-shell split-section"><div className="section-label">01 / ABOUT</div><div className="section-content"><h2>Backend thinking.<br/><span>Full-stack execution.</span></h2><p>Software Engineer skilled in backend development, RESTful APIs, SQL, MySQL, Java, C++, and data structures and algorithms.</p><p>I build maintainable software around clear APIs, relational data models, efficient queries and modular application design.</p><div className="stat-row"><div><strong>2026</strong><span>Computer Science graduate</span></div><div><strong>7.52</strong><span>CGPA / 10</span></div><div><strong>01</strong><span>Industry internship</span></div></div></div></section>
-    <section id="experience" className="section-shell experience-section"><div className="section-label">02 / EXPERIENCE</div><div className="section-content"><h2>Frontend Developer<br/><span>Internship.</span></h2><div className="timeline-card"><div><strong>ThinkNEXT Technologies Pvt. Ltd.</strong><span>Mohali, India · May 2024 – Jun 2024</span></div><ul><li>Integrated responsive UI components with RESTful backend APIs for reliable data exchange.</li><li>Troubleshot API interaction and performance issues to improve responsiveness and data reliability.</li><li>Collaborated through Git workflows to connect backend endpoints with frontend features.</li></ul></div></div></section>
-    <section id="skills" className="section-shell skills-section"><div className="section-label">03 / TOOLKIT</div><div className="section-content"><h2>Technologies I use to<br/><span>build complete systems.</span></h2><div className="skill-groups">{skillGroups.map(([group,items])=><div className="skill-group" key={group}><h3>{group}</h3><div className="skill-grid">{items.map(skill=><div className="skill" key={skill}>{skill}</div>)}</div></div>)}</div></div></section>
-    <section id="projects" className="section-shell projects-section"><div className="section-label">04 / SELECTED WORK</div><div className="section-content"><div className="projects-head"><h2>Projects that<br/><span>show the work.</span></h2><p>Full-stack applications, database systems, algorithms and practical developer tools.</p></div><div className="project-list">{projects.map(([title,description,stack,repo,live],index)=><article className="project" key={title}><div className="project-number">{String(index+1).padStart(2,'0')}</div><div className="project-main"><h3>{title}</h3><p>{description}</p><small>{stack}</small></div><div className="project-links">{live&&<a href={live} target="_blank" rel="noreferrer">LIVE ↗</a>}<a href={repo} target="_blank" rel="noreferrer">CODE ↗</a></div></article>)}</div></div></section>
-    <section id="education" className="section-shell education-section"><div className="section-label">05 / EDUCATION</div><div className="section-content"><h2>Computer Science<br/><span>foundation.</span></h2><div className="education-list"><div className="education-item"><div><h3>Chandigarh University, Punjab</h3><p>Bachelor of Engineering, Computer Science</p></div><div><strong>7.52 / 10</strong><span>Aug 2022 – May 2026</span></div></div><div className="education-item"><div><h3>L.R.S. Academy</h3><p>Class XII · P.C.M.</p></div><div><strong>9.13 / 10</strong><span>2021 – 2022</span></div></div><div className="education-item"><div><h3>L.R.S. Academy</h3><p>Class X</p></div><div><strong>8.7 / 10</strong><span>2019 – 2020</span></div></div></div></div></section>
-    <section id="contact" className="contact section-shell"><div className="contact-card"><div className="eyebrow">✦ LET’S BUILD SOMETHING</div><h2>Have a role,<br/><em>project,</em> or idea?</h2><p>I’m open to software engineering opportunities where I can contribute to backend systems, full-stack applications and AI-powered products.</p><div className="contact-details"><span>✉ {profile.email}</span><span>☎ {profile.phone}</span><span>⌖ {profile.location} · Open to Relocate</span></div><div className="contact-actions"><a className="btn primary" href={`mailto:${profile.email}`}>Email me →</a><a className="btn ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a className="btn ghost" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>
-  </main><footer className="footer"><span>© {new Date().getFullYear()} {profile.name}</span><span>Built for performance · React · CSS 3D</span><a href="#top">Back to top ↑</a></footer></div>; }
+const Arrow = ({ down = false }) => <span aria-hidden="true">{down ? '↓' : '↗'}</span>;
+
+function Navbar() {
+  const links = ['about','experience','skills','projects','education','contact'];
+  return <header className="nav">
+    <a className="brand" href="#top" aria-label="Back to top">DC<span>.</span></a>
+    <nav aria-label="Primary navigation">{links.map(x => <a key={x} href={`#${x}`}>{x}</a>)}</nav>
+    <a className="nav-cta" href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow/></a>
+  </header>;
+}
+
+function Scene3D() {
+  return <div className="hero-3d" aria-hidden="true">
+    <div className="scene">
+      <div className="orbital orbital-one" />
+      <div className="orbital orbital-two" />
+      <div className="orbital orbital-three" />
+      <div className="core"><span>DC</span></div>
+    </div>
+    <div className="float-tag tag-one">REACT</div>
+    <div className="float-tag tag-two">JAVA</div>
+    <div className="float-tag tag-three">AI</div>
+  </div>;
+}
+
+function Hero() {
+  return <section className="hero section-shell" id="top">
+    <div className="hero-copy reveal">
+      <div className="eyebrow">✦ SOFTWARE ENGINEER · FULL-STACK DEVELOPER</div>
+      <h1>I build <em>reliable</em><br/>software that scales.</h1>
+      <p>I’m <strong>{profile.name}</strong>, a Software Engineer focused on backend systems, RESTful APIs, databases, full-stack applications, algorithms and AI-powered products.</p>
+      <div className="hero-actions">
+        <a className="btn primary" href="#projects">View projects <Arrow down/></a>
+        <a className="btn ghost" href="#contact">Contact me →</a>
+      </div>
+      <div className="hero-meta"><span>● {profile.location}</span><span>{profile.availability}</span><span>Available for Software Engineering roles</span></div>
+    </div>
+    <Scene3D />
+    <div className="scroll-cue">SCROLL TO EXPLORE <Arrow down/></div>
+  </section>;
+}
+
+function About() {
+  return <section id="about" className="section-shell split-section reveal-section"><div className="section-label">01 / ABOUT</div><div className="section-content"><h2>Backend thinking.<br/><span>Full-stack execution.</span></h2><p>Software Engineer skilled in backend development, RESTful APIs, SQL, MySQL, Java, C++, and data structures and algorithms.</p><p>I build maintainable and efficient solutions around clear APIs, relational data models, indexing, JOIN-based query optimization, OOP and modular design, with a focus on scalable application development.</p><div className="stat-row"><div><strong>2026</strong><span>Computer Science graduate</span></div><div><strong>7.52</strong><span>CGPA / 10</span></div><div><strong>01</strong><span>Industry internship</span></div></div></div></section>;
+}
+
+function Experience() {
+  return <section id="experience" className="section-shell experience-section reveal-section"><div className="section-label">02 / EXPERIENCE</div><div className="section-content"><h2>Frontend Developer<br/><span>Internship.</span></h2><div className="timeline-card"><div><strong>ThinkNEXT Technologies Pvt. Ltd.</strong><span>Mohali, India · May 2024 – Jun 2024</span></div><ul><li>Integrated responsive UI components with RESTful backend APIs for reliable data exchange and end-to-end feature delivery.</li><li>Troubleshot and resolved API interaction and performance issues to improve interface responsiveness and data reliability.</li><li>Collaborated via Git workflows to connect backend endpoints with frontend features alongside cross-functional team members.</li></ul></div></div></section>;
+}
+
+function Skills() {
+  return <section id="skills" className="section-shell skills-section reveal-section"><div className="section-label">03 / TOOLKIT</div><div className="section-content"><h2>Technologies I use to<br/><span>build complete systems.</span></h2><div className="skill-groups">{skills.map(([group,items]) => <div className="skill-group" key={group}><h3>{group}</h3><div className="skill-grid">{items.map(skill => <div className="skill" key={skill}>{skill}</div>)}</div></div>)}</div></div></section>;
+}
+
+function Projects() {
+  return <section id="projects" className="section-shell projects-section reveal-section"><div className="section-label">04 / SELECTED WORK</div><div className="section-content"><div className="projects-head"><h2>Projects that<br/><span>show the work.</span></h2><p>Full-stack applications, database systems, algorithms and practical developer tools.</p></div><div className="project-list">{projects.map((project,index) => <article className="project" key={project.title}><div className="project-number">{String(index+1).padStart(2,'0')}</div><div className="project-main"><h3>{project.title}</h3><p>{project.description}</p><small>{project.stack}</small></div><div className="project-links">{project.live && <a href={project.live} target="_blank" rel="noreferrer">LIVE ↗</a>}<a href={project.repo} target="_blank" rel="noreferrer">CODE ↗</a></div></article>)}</div></div></section>;
+}
+
+function Education() {
+  return <section id="education" className="section-shell education-section reveal-section"><div className="section-label">05 / EDUCATION</div><div className="section-content"><h2>Computer Science<br/><span>foundation.</span></h2><div className="education-list"><div className="education-item"><div><h3>Chandigarh University, Punjab</h3><p>Bachelor of Engineering, Computer Science</p></div><div><strong>7.52 / 10</strong><span>Aug 2022 – May 2026</span></div></div><div className="education-item"><div><h3>L.R.S. Academy</h3><p>Class XII · P.C.M.</p></div><div><strong>9.13 / 10</strong><span>2021 – 2022</span></div></div><div className="education-item"><div><h3>L.R.S. Academy</h3><p>Class X</p></div><div><strong>8.7 / 10</strong><span>2019 – 2020</span></div></div></div></div></section>;
+}
+
+function Contact() {
+  return <section id="contact" className="contact section-shell reveal-section"><div className="contact-card"><div className="eyebrow">✦ LET’S BUILD SOMETHING</div><h2>Have a role,<br/><em>project,</em> or idea?</h2><p>I’m open to software engineering opportunities where I can contribute to backend systems, full-stack applications and AI-powered products.</p><div className="contact-details"><span>✉ {profile.email}</span><span>☎ {profile.phone}</span><span>⌖ {profile.location} · {profile.availability}</span></div><div className="contact-actions"><a className="btn primary" href={`mailto:${profile.email}`}>Email me →</a><a className="btn ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a className="btn ghost" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>;
+}
+
+function Footer() {
+  return <footer className="footer"><span>© {new Date().getFullYear()} {profile.name}</span><span>Built for performance · React · CSS 3D</span><a href="#top">Back to top ↑</a></footer>;
+}
+
+function App() { return <div className="app" id="top"><Navbar/><main><Hero/><About/><Experience/><Skills/><Projects/><Education/><Contact/></main><Footer/></div>; }
+
+function revealOnScroll() {
+  const nodes = document.querySelectorAll('.reveal-section');
+  if (!('IntersectionObserver' in window)) { nodes.forEach(n => n.classList.add('visible')); return; }
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:0.15});
+  nodes.forEach(n => observer.observe(n));
+}
+
 createRoot(document.getElementById('root')).render(<App/>);
+requestAnimationFrame(revealOnScroll);
