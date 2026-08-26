@@ -6,7 +6,15 @@ export const profile = {
   email: 'devchauhan9012435623@gmail.com',
   phone: '+91-9012435623',
   github: 'https://github.com/dc-pixel',
-  linkedin: 'https://www.linkedin.com/'
+  linkedin: 'https://www.linkedin.com/in/dev-pratap-singh-44ba38270/'
+};
+
+export const experience = {
+  company: 'ThinkNEXT Technologies Pvt. Ltd.',
+  role: 'Frontend Developer Intern',
+  location: 'Mohali, India',
+  dates: 'May 2024 – Jun 2024',
+  repo: 'https://github.com/dc-pixel/Thinknext-'
 };
 
 export const projects = [
