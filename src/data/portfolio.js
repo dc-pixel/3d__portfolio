@@ -11,10 +11,10 @@ export const profile = {
 
 export const projects = [
   {title:'HireMate AI',description:'AI-assisted recruitment and interview platform covering resumes, applications, candidate profiles and recruiter workflows.',stack:'Next.js · Node.js · PostgreSQL · JWT · RBAC · REST · LLM · RAG',repo:'https://github.com/dc-pixel'},
-  {title:'Student Result Analysis System',description:'Normalized relational database system for students, courses and scores with indexed JOIN queries and analytical reporting.',stack:'MySQL · SQL · DBMS · Normalization · Indexing · Query Optimization',repo:'https://github.com/dc-pixel/Student-Result-Analysis-System'},
-  {title:'Library Management System',description:'Modular Java application using OOP to manage books, users, checkouts, returns and inventory state.',stack:'Java · OOP · Persistence Design',repo:'https://github.com/dc-pixel/Library-Management-System'},
+  {title:'Student Result Analysis System',description:'Normalized relational database system for students, courses and scores with indexed JOIN queries and analytical reporting.',stack:'MySQL · SQL · DBMS · Normalization · Indexing · Query Optimization',repo:'https://github.com/dc-pixel/Student-Result-Analysis-System',live:'https://student-result-analysis-system-j8h99zjqj-devpratapsingh1.vercel.app/'},
+  {title:'Library Management System',description:'Modular Java application using OOP to manage books, users, checkouts, returns and inventory state.',stack:'Java · OOP · Persistence Design',repo:'https://github.com/dc-pixel/Library-Management-System',live:'https://library-management-system-3w0d06hax-devpratapsingh1.vercel.app/'},
   {title:'Sorting Visualizer',description:'Interactive visualization of sorting algorithms with a clean, responsive interface.',stack:'JavaScript · Algorithms · DOM · UI',repo:'https://github.com/dc-pixel/sortingvisualizer',live:'https://sortingvisualizer-amber.vercel.app/'},
-  {title:'Sudoku Solver',description:'Interactive Sudoku solver built around backtracking and algorithmic problem solving.',stack:'JavaScript · Backtracking · Algorithms · UI',repo:'https://github.com/dc-pixel/Sudoku-Solver-'},
+  {title:'Sudoku Solver',description:'Interactive Sudoku solver built around backtracking and algorithmic problem solving.',stack:'JavaScript · Backtracking · Algorithms · UI',repo:'https://github.com/dc-pixel/Sudoku-Solver-',live:'https://sudoku-solver-njxq7fa3c-devpratapsingh1.vercel.app/'},
   {title:'File Zipper',description:'Practical file-compression utility with a simple web interface.',stack:'Java · Compression · File I/O',repo:'https://github.com/dc-pixel/File-Zipper-',live:'https://file-zipper-eight.vercel.app/'}
 ];
 
